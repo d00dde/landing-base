@@ -1,0 +1,30 @@
+@import "firstScreen";
+@import "aboutScreen";
+
+.wrapper {
+  width: 80%;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.primary-btn {
+  align-self: start;
+  padding: 15px 45px;
+  border-radius: 100px;
+  cursor: pointer;
+  font-size: 17px;
+  letter-spacing: 0.5px;
+  color: $darkText;
+  white-space: nowrap;
+  background-color: $mainColor;
+  border: 2px solid $mainColor;
+  transition: color 0.5s;
+  &:hover {
+    background-color: $mainColorActive;
+    border: 2px solid $mainColorActive;
+  }
+}
