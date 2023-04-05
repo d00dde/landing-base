@@ -1,0 +1,32 @@
+@import "_variables";
+
+@mixin a-button ($bgColor, $borderColor, $activeColor) {
+  @include base-button($borderColor, $activeColor);
+  align-self: start;
+  font-size: 17px;
+  padding: 15px 45px;
+  background-color: $bgColor;
+}
+
+@mixin base-button ($borderColor, $activeColor){
+  border-radius: 100px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  color: $darkText;
+  white-space: nowrap;
+  border: 2px solid $borderColor;
+  transition: color 0.5s;
+  &:hover {
+    background-color: $activeColor;
+    border: 2px solid $activeColor;
+  }
+}
+
+@mixin title {
+  font-family: serif;
+  font-size: 35px;
+  text-align: start;
+  line-height: 130%;
+  letter-spacing: 2px;
+  color: $greyTitle;
+}

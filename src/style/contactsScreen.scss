@@ -1,64 +1,20 @@
 @import "_variables";
 @import "_mixins";
 
-.donate-screen {
-  padding: 60px 0;
+.contacts-screen {
   width: 100%;
   display: flex;
   justify-content: center;
-  background: $greyBg;
-  .donate-screen__photo {
-    width: 50%;
+  background: $mainGradient;
+  .contacts-screen__content {
+  }
+  .contacts-screen__photo {
+    width: 30%;
     display: flex;
     flex-direction: column;
     justify-content: end;
     img {
       width: 100%;
-    }
-  }
-  .donate-screen__content {
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    .title {
-      @include title;
-      margin-top: 70px;
-    }
-    .tip {
-      margin-top: 25px;
-      font-family: serif;
-      font-size: 15px;
-      letter-spacing: 0.9px;
-      line-height: 1.5;
-      color: $greyTitle;
-    }
-    .credit_block {
-      margin-top: 25px;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      width: 91%;
-      min-height: 43px;
-      background-color: $mainColor;
-      border-radius: 9px;
-      font-family: serif;
-      font-size: 23px;
-      color: $greyTitle;
-      text-decoration: none;
-      .credit_img {
-        display: flex;
-        align-items: center;
-      }
-    }
-    .footnote {
-      margin-top: 25px;
-      margin-bottom: 40px;
-      font-family: sans-serif;
-      font-style: italic;
-      font-size: 12px;
-      line-height: 1.5;
-      color: $lightGreyText;
     }
   }
 }

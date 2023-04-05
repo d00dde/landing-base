@@ -1,4 +1,4 @@
-import "./style/main.scss";
+import "../style/main.scss";
 import { Slider } from "./Slider";
 import { Popup } from "./Popup";
 

@@ -7,13 +7,17 @@ module.exports = (env, args) => {
   return {
     context: path.resolve(__dirname, "src"),
     mode: "development",
-    entry: "./index.js",
+    entry: {
+      main: "./js/index.js",
+      // shelter: "./js/shelter.js",
+    },
+
     output: {
       filename: "bundle.js",
       path: path.resolve(__dirname, "dist"),
     },
     devServer: {
-      port: 3725,
+      port: 3726,
       hot: true,
     },
     plugins: [
@@ -23,6 +27,11 @@ module.exports = (env, args) => {
           removeComments: isProd,
           collapseWhitespace: isProd,
         },
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'shelter.html',
+        template: 'shelter.html',
+        chunks: ['shelter']
       }),
       new CopyWebpackPlugin({
         patterns: [
