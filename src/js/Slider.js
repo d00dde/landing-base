@@ -13,8 +13,36 @@ export class Slider {
     this.render();
     // this.media();
     slider.onclick = (e) => {
-      if(e.target.classList.contains("popup")) {
-        popup.show("lol");
+      if(e.target.classList.contains("popIt")) {
+        let id = "";
+        if (e.target.parentNode.dataset.id) {
+          id = e.target.parentNode.dataset.id;
+        } 
+        else if (e.target.parentNode.parentNode.dataset.id){
+          id = e.target.parentNode.parentNode.dataset.id;
+        } 
+        else {
+          id = e.target.dataset.id;
+        }
+        const petInfo = this.active.find(item => item.name === id)
+        popup.show(`
+          <div class="info-card">
+            <div class="photo">
+              <img src="${petInfo.img}">
+            </div>
+            <div class="content">
+              <div class="name">${petInfo.name}</div>
+              <div class="type">${petInfo.type} - ${petInfo.breed}</div>
+              <div class="description">${petInfo.description}</div>
+              <ul class="properties">
+                <li><span>Age: </span>${petInfo.age}</li>
+                <li><span>Inoculations: </span>${petInfo.inoculations.toString()}</li>
+                <li><span>Diseases: </span>${petInfo.diseases.toString()}</li>
+                <li><span>Parasites: </span>${petInfo.parasites.toString()}</li>
+              </ul>
+            </div>
+          </div>
+        `);
       }
     }
     nextBtn.onclick = () => {
