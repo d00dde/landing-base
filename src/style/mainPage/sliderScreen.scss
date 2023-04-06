@@ -24,6 +24,7 @@
       height: 435px;
       flex-wrap: wrap;
       overflow: hidden;
+      z-index: 50;
       .slider__card {
         height: 435px;
         width: 270px;
@@ -31,6 +32,9 @@
         margin: 0 10px;
         background-color: #eee;
         animation: invoke 0.5s;
+        .secondary-btn {
+          background-color: red;
+        }
       }
     }
     .slider__controls {
