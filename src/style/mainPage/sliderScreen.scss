@@ -25,17 +25,6 @@
       flex-wrap: wrap;
       overflow: hidden;
       z-index: 10;
-      .slider__card {
-        height: 435px;
-        width: 270px;
-        flex-shrink: 0;
-        margin: 0 10px;
-        background-color: #eee;
-        animation: invoke 0.5s;
-        .secondary-btn {
-          background-color: red;
-        }
-      }
     }
     .slider__controls {
       position: absolute;
