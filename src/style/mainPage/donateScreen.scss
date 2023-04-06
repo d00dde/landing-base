@@ -35,20 +35,25 @@
     }
     .credit_block {
       margin-top: 25px;
+      padding: 0 15px;
       display: flex;
+      align-self: start;
       justify-content: space-around;
       align-items: center;
-      width: 91%;
       min-height: 43px;
       background-color: $mainColor;
       border-radius: 9px;
       font-family: serif;
-      font-size: 23px;
-      color: $greyTitle;
-      text-decoration: none;
       .credit_img {
+        padding-right: 15px;
         display: flex;
         align-items: center;
+      }
+      .credit_number {
+        font-size: 26px;
+        color: $greyTitle;
+        text-decoration: none;
+        cursor: pointer;
       }
     }
     .footnote {

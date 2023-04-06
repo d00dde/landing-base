@@ -12,8 +12,10 @@ export class Slider {
     this.next = data.slice(3, -1);
     this.render();
     // this.media();
-    slider.onclick = () => {
-      popup.show("lol");
+    slider.onclick = (e) => {
+      if(e.target.classList.contains("popup")) {
+        popup.show("lol");
+      }
     }
     nextBtn.onclick = () => {
       this.previous.push(this.active.shift());
