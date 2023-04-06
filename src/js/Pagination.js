@@ -1,6 +1,7 @@
-class Popup {
-  constructor() {
-    document.body.insertAdjacentHTML("beforeend", `
+export class Pagination {
+  constructor(selector = "") {
+    this.pagination = document.querySelector(selector);
+    this.pagination.insertAdjacentHTML("beforeend", `
       <div class="popup close">
         <div class="popup__wrapper">
           <div class="circle-btn close">X</div>
@@ -8,7 +9,6 @@ class Popup {
         </div>
       </div>
     `);
-    this.popup = document.querySelector(".popup");
     this.content = this.popup.querySelector(".popup__content");
     this.popup.onclick = (e) => {
       if(e.target.classList.contains("close")) {
@@ -16,16 +16,4 @@ class Popup {
       }
     }
   }
-
-  show(content = "") {
-    this.content.innerHTML = content;
-    this.popup.style.display = "flex";
-  }
-
-  hide() {
-    this.content.innerHTML = "";
-    this.popup.style.display = "none";
-  }
 }
-
-export const popup = new Popup();

@@ -1,12 +1,9 @@
 @import "_variables";
 @import "_mixins";
-@import "animations";
-@import "firstScreen";
-@import "aboutScreen";
-@import "sliderScreen";
-@import "featuresScreen";
-@import "donateScreen";
-@import "contactsScreen";
+
+html {
+  scroll-behavior: smooth;
+}
 
 .wrapper {
   width: 80%;
@@ -48,8 +45,14 @@
   align-items: center;
   animation: invoke 0.3s;
   .popup__wrapper {
+    position: relative;
     padding: 50px;
     background-color: $mainColor;
     border-radius: 15px;
+    .circle-btn {
+      position: absolute;
+      right: -50px;
+      top: -50px;
+    }
   }
 }

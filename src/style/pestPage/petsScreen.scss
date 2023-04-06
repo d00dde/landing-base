@@ -1,0 +1,67 @@
+@import "../_variables";
+@import "../_mixins";
+
+.pets-screen {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: $greyBg;
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 25px;
+    width: 100%;
+    height: 50px;
+    .navbar__logo {
+      .title {
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 125%;
+        letter-spacing: 1.5px;
+        text-decoration: none;
+        color: $mainColor;
+      }
+      .slogan {
+        font-family: sans-serif;
+        font-size: 13px;
+        letter-spacing: 1.2px;
+        word-spacing: 1.5px;
+        text-decoration: none;
+        color: $greyTitle;
+      }
+    }
+    .navbar__menu {
+      display: flex;
+      width: 40%;
+      justify-content: space-around;
+      .navbar__item {
+        list-style: none;
+        text-decoration: none;
+        font-family: sans-serif;
+        font-size: 15px;
+        margin-top: 5px;
+        cursor: pointer;
+        color: $greyText;
+        &.active {
+          position: relative;
+          color: $greyTitle;
+        }
+        &.active:after {
+          position: absolute;
+          width: 100%;
+          height: 3px;
+          content: "";
+          left: 0;
+          top: 20px;
+          background-color: $mainColor;
+        }
+      }
+    }
+  }
+  .pets-screen__title {
+    @include title;
+    margin-top: 70px;
+    text-align: center;
+  }
+}

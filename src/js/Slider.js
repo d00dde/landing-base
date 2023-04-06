@@ -1,3 +1,5 @@
+import { popup } from "./Popup";
+
 export class Slider {
   constructor(data = [], renderCb) {
     this.renderCb = renderCb;
@@ -10,6 +12,9 @@ export class Slider {
     this.next = data.slice(3, -1);
     this.render();
     // this.media();
+    slider.onclick = () => {
+      popup.show("lol");
+    }
     nextBtn.onclick = () => {
       this.previous.push(this.active.shift());
       this.active.push(this.next.shift());

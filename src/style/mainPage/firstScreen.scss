@@ -1,4 +1,4 @@
-@import "_variables";
+@import "../variables";
 
 .first-screen {
   width: 100%;
@@ -19,7 +19,7 @@
         line-height: 125%;
         letter-spacing: 1.5px;
         text-decoration: none;
-        color: rgba(241, 205, 179, 1);
+        color: $mainColor;
       }
       .slogan {
         font-family: sans-serif;

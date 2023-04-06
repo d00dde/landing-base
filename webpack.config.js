@@ -9,11 +9,11 @@ module.exports = (env, args) => {
     mode: "development",
     entry: {
       main: "./js/index.js",
-      // shelter: "./js/shelter.js",
+      pets: "./js/pets.js",
     },
 
     output: {
-      filename: "bundle.js",
+      filename: "[name].bundle.js",
       path: path.resolve(__dirname, "dist"),
     },
     devServer: {
@@ -27,17 +27,22 @@ module.exports = (env, args) => {
           removeComments: isProd,
           collapseWhitespace: isProd,
         },
+        chunks: ["main"]
       }),
       new HtmlWebpackPlugin({
-        filename: 'shelter.html',
-        template: 'shelter.html',
-        chunks: ['shelter']
+        filename: "pets.html",
+        template: "pets.html",
+        minify: {
+          removeComments: isProd,
+          collapseWhitespace: isProd,
+        },
+        chunks: ["pets"]
       }),
       new CopyWebpackPlugin({
         patterns: [
           {
             from: path.resolve(__dirname, "src/assets"),
-            to: 'assets',
+            to: "assets",
           },
         ],
       }),
