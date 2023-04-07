@@ -2,19 +2,100 @@
 @import "../mixins";
 
 .contacts-screen {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  background: $mainGradient;
-  .contacts-screen__content {
+  
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: $mainGradient;
+    .row {
+      flex-wrap: wrap;
+    .contacts-screen__contacts {
+      display: flex;
+      align-items: center;
+      max-width: 708px;
+      min-height: 234px;
+      margin: 0 0 0 5%;
+      gap: 10vw;
+      .column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        max-width: 300px;
+        min-height: 234px;
+        margin: 15% 0 0 0;
+        .title {
+          font-family: Georgia;
+          font-size: 35px;
+          line-height: 45px;
+          letter-spacing: 0.06em;
+          text-align: left;
+          color: $lightBg;
+          white-space: nowrap;
+
+        }
+        .contact {
+          display: flex;
+          .contact-text {
+            font-family: Georgia;
+            font-size: 20px;
+            line-height: 23px;
+            letter-spacing: 0.06em;
+            text-align: left;
+            margin-left: 20px;
+            color: $mainColor;
+            white-space: nowrap;
+
+          }
+        }
+      }
+    }
+    .contacts-screen__photo {
+      max-width: 310px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      img {
+        width: 100%;
+      }
+    }
   }
-  .contacts-screen__photo {
-    width: 30%;
+}
+
+@media (max-width: 769px) {
+  .row {
+    justify-content: center;
+    flex-direction: column;
+    }
+}
+
+
+@media (max-width: 321px) {
+  .contacts-screen__contacts {
     display: flex;
     flex-direction: column;
-    justify-content: end;
-    img {
+    justify-content: center;
+    margin: 0;
+    .column {
       width: 100%;
+      .title {
+        font-size: 25px;
+        line-height: 32px;
+        letter-spacing: 0.06em;
+        text-align: center;
+      }
+      .contact {
+        display: flex;
+        .contact-text {
+          font-size: 20px;
+          line-height: 23px;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+  .contacts-screen__photo {
+    img {
+      max-width: 260px;
     }
   }
 }
