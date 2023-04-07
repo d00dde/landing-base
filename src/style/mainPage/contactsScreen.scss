@@ -2,7 +2,7 @@
 @import "../mixins";
 
 .contacts-screen {
-  
+
     width: 100%;
     display: flex;
     justify-content: center;
@@ -62,10 +62,6 @@
 }
 
 @media (max-width: 769px) {
-  .row {
-    justify-content: center;
-    flex-direction: column;
-    }
 }
 
 

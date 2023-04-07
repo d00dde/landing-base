@@ -30,3 +30,24 @@
     color: $darkGreyText;
   }
 }
+
+@media (max-width: 769px) {
+  .about-screen {
+    .about-screen__photo {
+      margin: 50px 0 25px 0;
+      width: 50%;
+    }
+    .about-screen__content {
+      width: 100%;
+    }
+    .title {
+      @include title;
+    }
+    .description {
+      font-family: sans-serif;
+      font-size: 15px;
+      line-height: 160%;
+      color: $darkGreyText;
+    }
+  }
+}
