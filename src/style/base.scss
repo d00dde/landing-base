@@ -25,7 +25,7 @@ html {
 }
 
 .secondary-btn {
-  @include a-button($greyText, $mainColor, $mainColorActive);
+  @include a-button($defaultBtnBg, $mainColor, $mainColorActive);
 }
 .circle-btn {
   @include base-button($mainColor, $mainColorActive);
@@ -67,8 +67,8 @@ html {
   background-color: $popupBg;
   border-radius: 9px;
   padding: 10px;
-  
-  
+
+
   .photo {
     width: 50%;
     display: flex;
@@ -137,7 +137,7 @@ html {
 }
 
 .pet-card {
-  height: 435px;
+  height: $cardHeight;
   width: 270px;
   flex-shrink: 0;
   margin: 0 10px;
