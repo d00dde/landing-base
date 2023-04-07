@@ -15,6 +15,7 @@
   color: $darkText;
   white-space: nowrap;
   border: 2px solid $borderColor;
+  background-color: $defaultBtnBg;
   transition: color 0.5s;
   &:hover {
     background-color: $activeColor;
