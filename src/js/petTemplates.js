@@ -19,9 +19,9 @@ export const petTemplates = {
         <div class="description">${data.description}</div>
         <ul class="properties">
           <li><span>Age: </span>${data.age}</li>
-          <li><span>Inoculations: </span>${data.inoculations.toString()}</li>
-          <li><span>Diseases: </span>${data.diseases.toString()}</li>
-          <li><span>Parasites: </span>${data.parasites.toString()}</li>
+          <li><span>Inoculations: </span>${data.inoculations.join(", ")}</li>
+          <li><span>Diseases: </span>${data.diseases.join(", ")}</li>
+          <li><span>Parasites: </span>${data.parasites.join(", ")}</li>
         </ul>
       </div>
     </div>

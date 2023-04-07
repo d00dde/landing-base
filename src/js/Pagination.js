@@ -1,11 +1,12 @@
+import { popup } from "./Popup";
+
 export class Pagination {
-  constructor(selector = "", data = [], itemCb) {
+  constructor(selector = "", data = [], templates) {
     this.data = data;
-    this.itemCb = itemCb;
+    this.templates = templates;
     this.currentPage = 1;
     this.pageLimit = 8;
-    this.begin = 0;
-    this.end = this.pageLimit;
+    this.pagesCount = Math.ceil(this.data.length/this.pageLimit);
     this.pagination = document.querySelector(selector);
     this.create();
     this.content = this.pagination.querySelector(".pagination__content");
@@ -14,11 +15,19 @@ export class Pagination {
     this.current = this.pagination.querySelector(".current");
     this.next = this.pagination.querySelector(".next");
     this.last = this.pagination.querySelector(".last");
-    this.first.onclick = (e) => this.backward(e,true);
+    this.first.onclick = (e) => this.backward(e, true);
     this.previous.onclick = (e) => this.backward(e);
     this.next.onclick = (e) => this.forward(e);
-    this.last.onclick = (e) => this.forward(e,true);
+    this.last.onclick = (e) => this.forward(e, true);
+    this.media();
     this.render();
+    this.content.onclick = (e) => {
+      if(e.target.closest(".popIt")) {
+        let id = e.target.closest(".popIt").dataset.id;
+        const petInfo = this.data.find(item => item.name === id)
+        popup.show(templates.popup(petInfo));
+      }
+    }
   }
 
   create() {
@@ -35,9 +44,11 @@ export class Pagination {
   }
 
   render() {
-    this.content.innerHTML = this.data.slice(this.begin, this.end).map((item) => this.itemCb(item)).join("");
+    const begin = (this.currentPage - 1) * this.pageLimit;
+    const end = Math.min(begin + this.pageLimit, this.data.length);
+    this.content.innerHTML = this.data.slice(begin, end).map((item) => this.templates.card(item)).join("");
     this.current.innerText = this.currentPage;
-    if(this.begin === 0) {
+    if(this.currentPage === 1) {
       this.first.setAttribute("disabled", "");
       this.previous.setAttribute("disabled", "");
     }
@@ -45,7 +56,7 @@ export class Pagination {
       this.first.removeAttribute("disabled");
       this.previous.removeAttribute("disabled");
     }
-    if(this.end + this.pageLimit >= this.data.length) {
+    if(this.currentPage === this.pagesCount) {
       this.next.setAttribute("disabled", "");
       this.last.setAttribute("disabled", "");
     }
@@ -57,15 +68,36 @@ export class Pagination {
 
   forward(e, toEnd = false) {
     if(e.target.getAttribute("disabled")) return;
-    this.end = this.begin + this.pageLimit >= this.data.length ? this.data.length : this.begin + this.pageLimit;
-    this.begin = this.end - this.pageLimit;
-    console.log("forward!!");
+    if(toEnd) {
+      this.currentPage = this.pagesCount;
+    }
+    else {
+      this.currentPage++;
+    }
     this.render();
   }
 
   backward(e, toBegin = false) {
     if(e.target.getAttribute("disabled")) return;
-    console.log("backward!!");
+    if(toBegin) {
+      this.currentPage = 1;
+    }
+    else {
+      this.currentPage--;
+    }
     this.render();
+  }
+
+  media() {
+    window.matchMedia("(max-width: 1500px)").addEventListener("change",(e) => {
+      if (e.matches) {
+        this.pageLimit = 6;
+        this.pagesCount = Math.ceil(this.data.length/this.pageLimit);
+      } else {
+        this.pageLimit = 8;
+        this.pagesCount = Math.ceil(this.data.length/this.pageLimit);
+      }
+      this.render();
+    });
   }
 }

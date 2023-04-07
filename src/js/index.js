@@ -6,4 +6,4 @@ import { petTemplates } from "./petTemplates";
 document.querySelector(".credit_number").onclick = async (e) => {
   await navigator.clipboard.writeText(e.target.innerText);
 };
-new Slider(data, petTemplates.card, petTemplates.popup);
+new Slider(data, petTemplates);
