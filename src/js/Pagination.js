@@ -57,7 +57,8 @@ export class Pagination {
 
   forward(e, toEnd = false) {
     if(e.target.getAttribute("disabled")) return;
-    this.begin += pageLimit
+    this.end = this.begin + this.pageLimit >= this.data.length ? this.data.length : this.begin + this.pageLimit;
+    this.begin = this.end - this.pageLimit;
     console.log("forward!!");
     this.render();
   }
