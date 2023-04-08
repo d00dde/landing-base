@@ -51,26 +51,23 @@
 
 @media (max-width: 321px) {
   .slider-screen {
+    .slider-screen__title {
+      font-size: 25px;
+      margin: 40px 0;
+    }
     .slider {
       display: block;
       .slider__controls {
         position: static;
-        flex-direction: column;
+        display: flex;
         justify-content: space-around;
         width: 100%;
-        background-color: red;
-        opacity: 50%;
-        z-index: 200;
+        height: auto;
+        opacity: 1;
+        margin-top: 30px;
         .circle-btn {
-          position: absolute;
-          top: 0;
-          transform: translateY(0%);
-        }
-        .circle-btn:nth-child(1) {
-          left: 0;
-        }
-        .circle-btn:nth-child(2) {
-          right: 0;
+          position: static;
+          transform: translateY(0);
         }
       }
     }

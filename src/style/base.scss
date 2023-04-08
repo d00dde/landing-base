@@ -106,15 +106,15 @@ html {
     position: fixed;
     top: 0;
     bottom: 0;
-    left: -400px;
+    right: -350px;
     width: 320px;
     flex-direction: column;
-    justify-content: start;
-    background: $mainGradient;
-    transition: left 0.3s;
+    justify-content: center;
+    background: $burgerBg;
+    transition: right 0.5s;
     z-index: 60;
     &.visible {
-      left: 0;
+      right: 0;
     }
     .navbar__item {
       height: 70px;
@@ -128,14 +128,29 @@ html {
       &:hover {
         background-color: $mainColor;
       }
+      &.active {
+        position: relative;
+        color: $whiteText;
+      }
+      &.active:after {
+        position: absolute;
+        width: 55%;
+        left: 50%;
+        height: 3px;
+        transform: translateX(-50%);
+        content: "";
+        bottom: 10px;
+        background-color: $mainColor;
+      }
     }
   }
   .navbar__mobile-icon {
     display: none;
     font-size: 25px;
     padding: 0 10px;
+    z-index: 200;
     cursor: pointer;
-    color: $lightGreyText;
+    color: $mainColor;
     align-items: center;
     transition: transform 0.3s;
     &.active {
@@ -248,26 +263,42 @@ html {
 }
 
 .pet-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: $cardHeight;
-  width: 270px;
+  width: 30%;
   flex-shrink: 0;
-  margin: 0 10px;
+  margin: 0;
   border-radius: 9px;
   background-color: #eee;
   animation: invoke 0.5s;
   text-align: center;
-  .title {
-    margin: 20px 0;
-    font-family: Georgia;
-    font-size: 20px;
-    line-height: 23px;
-    letter-spacing: 0.06em;
-    text-align: center;
+  .pet-card__photo {
+    justify-self: start;
+    img {
+      width: 100%;
+    }
+  }
+  .pet-card__wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-bottom: 20px;
+    .title {
+      margin: 20px 0;
+      font-family: Georgia;
+      font-size: 20px;
+      line-height: 23px;
+      letter-spacing: 0.06em;
+      text-align: center;
+    }
     .secondary-btn {
       margin: 0 auto;
       align-self: center;
+      padding: 15px 15%;
     }
-
   }
 }
 
@@ -293,6 +324,41 @@ html {
     }
     .navbar__mobile-icon {
       display: flex;
+    }
+  }
+  .pet-card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 321px) {
+  .pet-card {
+    width: 100%;
+  }
+  .popup {
+    .popup__wrapper {
+      .circle-btn {
+        right: -25px;
+        top: -45px;
+      }
+    }
+  }
+  .info-card {
+    padding: 10px;
+    .photo {
+      display: none;
+    }
+    .content {
+      padding: 0;
+      .name {
+        text-align: center;
+      }
+      .type {
+        text-align: center;
+      }
+      .description {
+        text-align: justify;
+      }
     }
   }
 }

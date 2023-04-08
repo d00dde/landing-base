@@ -1,11 +1,13 @@
 export const petTemplates = {
   card: (data) => `
     <div class="pet-card popIt" data-id="${data.name}">
-      <div>
+      <div class="pet-card__photo">
         <img src="${data.img}">
       </div>
-      <div class="title">${data.name}</div>
-      <button class="secondary-btn">Learn more</button>
+      <div class="pet-card__wrapper">
+        <div class="title">${data.name}</div>
+        <button class="secondary-btn">Learn more</button>
+      </div>
     </div>
   `,
   popup: (data) => `

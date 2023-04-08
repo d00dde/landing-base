@@ -4,7 +4,13 @@ export class Menu {
     this.menuBtn = document.querySelector(".navbar__mobile-icon");
     this.menuMobile = document.querySelector(".navbar__menu_mobile");
     this.shadow = document.querySelector(".shadow");
-    this.menuBtn.onclick = this.show.bind(this);
+    this.menuBtn.onclick = () => {
+      if (this.menuMobile.classList.contains("visible")) {
+        this.hide();
+      } else {
+        this.show();
+      }
+    };
     this.shadow.onclick = this.hide.bind(this);
     this.menuMobile.onclick = (e) => {
       if (e.target.classList.contains("navbar__item")) {

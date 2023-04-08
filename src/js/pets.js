@@ -24,4 +24,7 @@ new Menu([
   { title: "Contacts", href: "index.html#contacts", isActive: false },
 ], ".navbar")
 
-new Pagination(".pets-screen__pagination", generate, petTemplates);
+window.addEventListener("load", () => {
+  new Pagination(".pets-screen__pagination", generate, petTemplates);
+})
+

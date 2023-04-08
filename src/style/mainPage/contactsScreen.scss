@@ -2,7 +2,6 @@
 @import "../mixins";
 
 .contacts-screen {
-
     width: 100%;
     display: flex;
     justify-content: center;
@@ -22,7 +21,7 @@
         justify-content: space-around;
         max-width: 300px;
         min-height: 234px;
-        margin: 15% 0 0 0;
+        margin: 0 0 0 0;
         .title {
           font-family: Georgia;
           font-size: 35px;
@@ -66,32 +65,35 @@
 
 
 @media (max-width: 321px) {
-  .contacts-screen__contacts {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0;
-    .column {
-      width: 100%;
-      .title {
-        font-size: 25px;
-        line-height: 32px;
-        letter-spacing: 0.06em;
-        text-align: center;
-      }
-      .contact {
-        display: flex;
-        .contact-text {
-          font-size: 20px;
-          line-height: 23px;
-          margin-left: 5px;
+  .contacts-screen {
+    .contacts-screen__contacts {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0;
+      .column {
+        width: 100%;
+        margin: 0;
+        .title {
+          font-size: 25px;
+          line-height: 32px;
+          letter-spacing: 0.06em;
+          text-align: center;
+        }
+        .contact {
+          display: flex;
+          .contact-text {
+            font-size: 20px;
+            line-height: 23px;
+            margin-left: 5px;
+          }
         }
       }
     }
-  }
-  .contacts-screen__photo {
-    img {
-      max-width: 260px;
+    .contacts-screen__photo {
+      img {
+        max-width: 260px;
+      }
     }
   }
 }
