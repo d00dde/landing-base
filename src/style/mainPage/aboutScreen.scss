@@ -6,11 +6,16 @@
   display: flex;
   justify-content: center;
   background: $lightBg;
-  .about-screen__photo {
-    margin: 50px;
-    width: 30%;
-    img {
-      width: 100%;
+  .row {
+    display: flex;
+    justify-content: center;
+    gap: 110px;
+    .about-screen__photo {
+      margin: 50px;
+      width: 30%;
+      img {
+        width: 100%;
+      }
     }
   }
   .about-screen__content {
@@ -35,10 +40,15 @@
   .about-screen {
     .row {
       flex-direction: column-reverse;
-    }
-    .about-screen__photo {
-      margin: 50px 0 25px 0;
-      width: 50%;
+      max-width: 437px;
+      margin: auto;
+      .about-screen__photo {
+        margin: 0;
+        width: 70%;
+        img {
+          width: 100%;
+        }
+      }
     }
     .about-screen__content {
       width: 100%;

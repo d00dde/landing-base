@@ -7,19 +7,20 @@
   justify-content: center;
   background: $lightBg;
   .wrapper {
+    padding-bottom: 0;
     .features-screen__title {
       @include title;
       text-align: center;
       margin: 15%;
       font-size: 35px;
       line-height: 32px;
-
     }
     .features-screen__content {
       width: 100%;
       min-height: 611px;
       display: flex;
       flex-wrap: wrap;
+      gap: 50px;
       justify-content: space-around;
       .features-screen__feature {
         display: flex;
@@ -39,14 +40,41 @@
         }
       }
     }
+    .contact-screen__photo {
+      justify-self: end;
+    }
   }
 }
+
+@media (max-width: 768px) {
+  .features-screen {
+    .wrapper {
+      .features-screen__title {
+      }
+      .features-screen__content {
+      }
+        .features-screen__feature {
+        }
+          .description {
+          }
+        }
+      }
+    }
 
 @media (max-width: 321px) {
   .features-screen {
     .wrapper {
-      .features-screen__title{
-        font-size: 25px;
+      .features-screen__title {
+      }
+      .features-screen__content {
+        gap: 0;
+        .features-screen__feature {
+          min-width: 40%;
+          .description {
+            font-size: 15px;
+            line-height: 16.5px;
+          }
+        }
       }
     }
   }

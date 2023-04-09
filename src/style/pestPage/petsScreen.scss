@@ -6,84 +6,43 @@
   display: flex;
   justify-content: center;
   background: $greyBg;
-  .navbar {
-    .navbar__logo {
-      .slogan {
-        color: $darkText;
-      }
-    }
-    .navbar__menu {
-      .navbar__item {
-        color: $darkText;
-        &.active {
-          color: $greyText;
+  .wrapper {
+    .navbar {
+      .navbar__logo {
+        .title {
+        color: $greyTitle;
+        }
+        .slogan {
+          color: $darkText;
         }
       }
-    }
-  }
-  .pets-screen__title {
-    @include title;
-    margin: 30px 0;
-    text-align: center;
-  }
-  .pets-screen__pagination {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    .pagination__content {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
-      .pet-card {
-        width: 22%;
-      }
-    }
-    .pagination__controls {
-      width: 40%;
-      display: flex;
-      justify-content: space-around;
-      margin: 30px 0;
-      .circle-btn {
-        font-weight: 700;
-        &[disabled] {
-          cursor: default;
-          color: $greyText;
-          border: 2px solid $greyText;
-          &:hover {
-            background-color: $defaultBtnBg;
-            border: 2px solid $greyText;
+      .navbar__menu {
+        .navbar__item {
+          color: $greyTitle;
+          &.active {
+            color: $darkText;
           }
         }
       }
-      .first,
-      .last {
-        padding: 15px;
-      }
-      .next,
-      .previous,
-      .current {
-        padding: 15px 21px;
-      }
     }
-  }
-}
-
-@media (max-width: 769px) {
-  .pets-screen {
+    .pets-screen__title {
+      @include title;
+      margin: 200px 0 60px 0;
+      text-align: center;
+    }
     .pets-screen__pagination {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       .pagination__content {
-        justify-content: space-around;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
         .pet-card {
-          width: 48%;
-          .pet-card__photo {
-            justify-self: start;
-            img {
-              width: 90%;
-            }
-          }
+          width: 22%;
         }
       }
       .pagination__controls {
@@ -91,6 +50,7 @@
         display: flex;
         justify-content: space-around;
         margin: 30px 0;
+        gap: 8px;
         .circle-btn {
           font-weight: 700;
           &[disabled] {
@@ -111,6 +71,56 @@
         .previous,
         .current {
           padding: 15px 21px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 769px) {
+  .pets-screen {
+    .wrapper{
+      .pets-screen__pagination {
+        .pagination__content {
+          justify-content: space-around;
+          .pet-card {
+            min-width: 48%;
+            .pet-card__photo {
+              justify-self: start;
+              align-self: center;
+              img {
+                width: 90%;
+              }
+            }
+          }
+        }
+        .pagination__controls {
+          width: 40%;
+          display: flex;
+          justify-content: space-around;
+          margin: 30px 0;
+          gap: 5px;
+          .circle-btn {
+            font-weight: 700;
+            &[disabled] {
+              cursor: default;
+              color: $greyText;
+              border: 2px solid $greyText;
+              &:hover {
+                background-color: $defaultBtnBg;
+                border: 2px solid $greyText;
+              }
+            }
+          }
+          .first,
+          .last {
+            padding: 15px;
+          }
+          .next,
+          .previous,
+          .current {
+            padding: 15px 21px;
+          }
         }
       }
     }
@@ -119,38 +129,44 @@
 
 @media (max-width: 321px) {
   .pets-screen {
-    .pets-screen__pagination {
-      .pagination__content {
-        justify-content: space-around;
-        .pet-card {
-          width: 100%;
-        }
+    .wrapper {
+      .pets-screen__title {
+        margin-top: 160px;
       }
-      .pagination__controls {
-        width: 40%;
-        display: flex;
-        justify-content: space-around;
-        margin: 30px 0;
-        .circle-btn {
-          font-weight: 700;
-          &[disabled] {
-            cursor: default;
-            color: $greyText;
-            border: 2px solid $greyText;
-            &:hover {
-              background-color: $defaultBtnBg;
-              border: 2px solid $greyText;
-            }
+      .pets-screen__pagination {
+        .pagination__content {
+          justify-content: space-around;
+          .pet-card {
+            width: 100%;
           }
         }
-        .first,
-        .last {
-          padding: 15px;
-        }
-        .next,
-        .previous,
-        .current {
-          padding: 15px 21px;
+        .pagination__controls {
+          width: 40%;
+          display: flex;
+          justify-content: space-around;
+          margin: 30px 0;
+          gap: 5px;
+          .circle-btn {
+            font-weight: 700;
+            &[disabled] {
+              cursor: default;
+              color: $greyText;
+              border: 2px solid $greyText;
+              &:hover {
+                background-color: $defaultBtnBg;
+                border: 2px solid $greyText;
+              }
+            }
+          }
+          .first,
+          .last {
+            padding: 15px;
+          }
+          .next,
+          .previous,
+          .current {
+            padding: 15px 21px;
+          }
         }
       }
     }
