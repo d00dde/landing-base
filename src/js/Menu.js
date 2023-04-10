@@ -22,8 +22,12 @@ export class Menu {
   create(data, selector) {
     document.querySelector(selector).innerHTML = `
       <div class="navbar__logo">
-        <div class="title">Cozy House</div>
-        <div class="slogan">Shelter for pets in Boston</div>
+        <div>
+          <a class="title" href="./index.html">Cozy House</a>
+        </div>
+        <div>
+          <a class="slogan" href="./index.html">Shelter for pets in Boston</a>
+        </div>
       </div>
       <div class="navbar__menu">
         ${data.map(({ href, title, isActive}) => `<a ${href ? `href="${href}"` : ""} class="navbar__item${isActive ? " active" : ""}">${title}</a>`).join("")}

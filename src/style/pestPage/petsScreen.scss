@@ -24,6 +24,12 @@
           }
         }
       }
+      .navbar__mobile-icon {
+        color: $black;
+        &.active {
+          color: $mainColor;
+        }
+      }
     }
     .pets-screen__title {
       @include title;

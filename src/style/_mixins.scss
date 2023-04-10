@@ -6,6 +6,7 @@
   font-size: 17px;
   padding: 15px 45px;
   background-color: $bgColor;
+  text-decoration: none;
 }
 
 @mixin base-button ($borderColor, $activeColor){
@@ -17,6 +18,7 @@
   border: 2px solid $borderColor;
   background-color: $defaultBtnBg;
   transition: color 0.5s;
+  text-decoration: none;
   &:hover {
     background-color: $activeColor;
     border: 2px solid $activeColor;
