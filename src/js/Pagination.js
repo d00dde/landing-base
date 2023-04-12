@@ -119,8 +119,8 @@ export class Pagination {
 
   calculateStartPageLimit() {
     const screenWidth = parseInt(getComputedStyle(document.querySelector('body')).width);
-    if (screenWidth > 768) return 8;
-    if (screenWidth > 320) return 6;
+    if (screenWidth > 769) return 8;
+    if (screenWidth > 321) return 6;
     return 3;
   }
 }
