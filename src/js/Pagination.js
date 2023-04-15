@@ -5,7 +5,7 @@ export class Pagination {
     this.data = data;
     this.templates = templates;
     this.currentPage = 1;
-    this.pageLimit = 8;
+    this.pageLimit = this.calculateStartPageLimit();
     this.pagesCount = Math.ceil(this.data.length/this.pageLimit);
     this.pagination = document.querySelector(selector);
     this.create();
@@ -89,15 +89,38 @@ export class Pagination {
   }
 
   media() {
-    window.matchMedia("(max-width: 1500px)").addEventListener("change",(e) => {
+    window.matchMedia("(max-width: 769px)").addEventListener("change",(e) => {
       if (e.matches) {
         this.pageLimit = 6;
         this.pagesCount = Math.ceil(this.data.length/this.pageLimit);
       } else {
         this.pageLimit = 8;
         this.pagesCount = Math.ceil(this.data.length/this.pageLimit);
+        if (this.currentPage > this.pagesCount) {
+          this.currentPage = this.pagesCount;
+        }
       }
       this.render();
     });
+    window.matchMedia("(max-width: 321px)").addEventListener("change",(e) => {
+      if (e.matches) {
+        this.pageLimit = 3;
+        this.pagesCount = Math.ceil(this.data.length/this.pageLimit);
+      } else {
+        this.pageLimit = 6;
+        this.pagesCount = Math.ceil(this.data.length/this.pageLimit);
+        if (this.currentPage > this.pagesCount) {
+          this.currentPage = this.pagesCount;
+        }
+      }
+      this.render();
+    });
+  }
+
+  calculateStartPageLimit() {
+    const screenWidth = parseInt(getComputedStyle(document.querySelector('body')).width);
+    if (screenWidth > 769) return 8;
+    if (screenWidth > 321) return 6;
+    return 3;
   }
 }

@@ -6,11 +6,16 @@
   display: flex;
   justify-content: center;
   background: $lightBg;
-  .about-screen__photo {
-    margin: 50px;
-    width: 30%;
-    img {
-      width: 100%;
+  .row {
+    display: flex;
+    justify-content: center;
+    gap: 110px;
+    .about-screen__photo {
+      margin: 50px;
+      width: 30%;
+      img {
+        width: 100%;
+      }
     }
   }
   .about-screen__content {
@@ -28,5 +33,60 @@
     font-size: 15px;
     line-height: 160%;
     color: $darkGreyText;
+  }
+}
+
+@media (max-width: 769px) {
+  .about-screen {
+    .row {
+      flex-direction: column-reverse;
+      max-width: 437px;
+      margin: auto;
+      .about-screen__photo {
+        margin: 0;
+        width: 70%;
+        img {
+          width: 100%;
+        }
+      }
+    }
+    .about-screen__content {
+      width: 100%;
+    }
+    .title {
+      @include title;
+      margin-top: 40px;
+    }
+    .description {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      line-height: 160%;
+      color: $darkGreyText;
+    }
+  }
+}
+
+@media (max-width: 321px) {
+  .about-screen {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: $lightBg;
+    .about-screen__photo {
+      margin: 50px;
+      width: 100%;
+      img {
+        width: 100%;
+      }
+    }
+    .row {
+      flex-direction: column-reverse;
+    }
+    .title {
+      text-align: center;
+    }
+    .description {
+      text-align: justify;
+    }
   }
 }
